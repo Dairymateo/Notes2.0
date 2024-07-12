@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:models="clr-namespace:Notes.Models"
+             xmlns:viewModels="clr-namespace:Notes.ViewModels"
              x:Class="Notes.Views.AboutPage">
     <ContentPage.BindingContext>
-        <models:About />
+        <viewModels:AboutViewModel />
     </ContentPage.BindingContext>
     <VerticalStackLayout Spacing="10" Margin="10">
         <HorizontalStackLayout Spacing="10">
             <Image Source="milogo.png"
-                   SemanticProperties.Description="The dot net bot waving hello!"
+                   SemanticProperties.Description="Programador por el dia, mesero por la noche"
                    HeightRequest="64" />
-            <Label FontSize="22" FontAttributes="Bold" Text="Mate Herrera" VerticalOptions="End" />
+            <Label FontSize="22" FontAttributes="Bold" Text="{Binding Title}" VerticalOptions="End" />
+            <Label FontSize="22" Text="Version 2.0" VerticalOptions="End" />
         </HorizontalStackLayout>
-        
-        <Label Text="Estudiante de ingeniera por el día, mesero por las noches" />
-        <Button Text="Saber Más" Clicked="LearnMore_Clicked" />
+
+        <Label Text="Programador por el dia, mesero por la noche" />
+        <Button Text="Learn more..." Command="{Binding ShowMoreInfoCommand}" />
     </VerticalStackLayout>
 
 </ContentPage>
